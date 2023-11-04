@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Defina as informações de destino do email
-    $destinatario = "nit@faespi.com.br";
+    $destinatario = "gwpoliveira@gmail.com";
     $copia = "gwpoliveira@gmail.com";
     $assunto = "Formulário de Inscrição";
 
