@@ -39,3 +39,48 @@ function prevStep(currentStep) {
 // Iniciar com a primeira etapa visível
 showStep(1);
 
+// Função para validar os campos obrigatórios em uma etapa
+function validateStep(step) {
+    switch (step) {
+        case 1:
+            // Etapa 1: Verifique apenas o campo "privacidade"
+            const privacidadeCheckbox = document.getElementById('privacidade');
+            if (!privacidadeCheckbox.checked) {
+                alert('Você deve concordar com a Política de Privacidade para continuar.');
+                return false;
+            }
+            break;
+        case 2:
+            // Etapa 2: Verifique todos os campos obrigatórios
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const celular = document.getElementById('celular').value;
+
+            if (nome === '' || email === '' || celular === '') {
+                alert('Preencha todos os campos obrigatórios na Etapa 2.');
+                return false;
+            }
+            break;
+        case 3:
+            // Etapa 3: Verifique todos os campos obrigatórios
+            const cpf = document.getElementById('cpf').value;
+            const historico = document.getElementById('historico').value;
+
+            if (cpf === '' || historico === '') {
+                alert('Preencha todos os campos obrigatórios na Etapa 3.');
+                return false;
+            }
+            break;
+    }
+    return true;
+}
+
+// Função para avançar para a próxima etapa com validação
+function nextStep(currentStep) {
+    if (currentStep < 3) {
+        if (validateStep(currentStep)) {
+            showStep(currentStep + 1);
+        }
+    }
+}
+
